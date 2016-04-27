@@ -4,7 +4,20 @@
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
     <% if place.user.present? %>
-      <small><%= place.user.email %></small>
+      <small><%= place.user.email %><br /></small>
+    <% end %>
+
+    <%if place.photos.present? && place.user.present? %>
+      <br />
+    <% end %>
+
+    <% if place.photos.present? %>
+      <div class="col-xs-12">
+        <figure class="figure">
+          <%= image_tag place.photos.last.picture, class: 'figure-img img-fluid img-thumbnail' %>
+          <figcaption class="figure-caption text-center"><i><%= place.photos.last.caption %></i></figcaption>
+        </figure>
+      </div>
     <% end %>
 
     <% if place.comments.present? %>
