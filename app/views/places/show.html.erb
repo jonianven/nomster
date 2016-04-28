@@ -38,9 +38,23 @@
       <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
     <% end %>
   </div>
-</div>
 
-<div class="clear"></div>
+  <% if @place.photos.present? %>
+    <% if @place.photos.present? && current_user && current_user == @place.user %>
+      <br /><br ><br />
+    <% end %>
+    <div class="row no-gutters">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+          <% @photos.each do |photo| %>
+                <%= image_tag photo.picture, class: 'img-responsive img-thumbnail' %>
+                <p class="text-center"><i><%= photo.caption %></i></p>
+          <% end %>
+      </div>
+    </div>
+    <%= paginate @photos %>
+  <% end %>
+
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -86,19 +100,6 @@
   </div>
 </div>
 
-<% if @place.photos.present? %>
-  <div class="booyah-box col-xs-10 col-xs-offset-1">
-    <h1>Photos</h1>
-    <% @photos.each do |photo| %>
-        <br />
-        <figure class="figure">
-          <%= image_tag photo.picture, class: 'figure-img img-fluid img-thumbnail' %>
-          <figcaption class="figure-caption text-center"><i><%= photo.caption %></i></figcaption>
-        </figure>
-    <% end %>
-    <%= paginate @photos %>
-  </div>
-<% end %>
 
 <div class="clear"></div>
 <br />

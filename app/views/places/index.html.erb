@@ -12,11 +12,11 @@
     <% end %>
 
     <% if place.photos.present? %>
-      <div class="col-xs-12">
-        <figure class="figure">
-          <%= image_tag place.photos.last.picture, class: 'figure-img img-fluid img-thumbnail' %>
-          <figcaption class="figure-caption text-center"><i><%= place.photos.last.caption %></i></figcaption>
-        </figure>
+      <div class="row no-gutters">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+            <%= image_tag place.photos.last.picture, class: 'img-responsive img-thumbnail' %>
+            <p class="text-center"><i><%= place.photos.last.caption %></i></p>
+        </div>
       </div>
     <% end %>
 
