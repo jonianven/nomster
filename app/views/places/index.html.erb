@@ -58,8 +58,8 @@
     <% if place.photos.present? %>
       <div class="row no-gutters">
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-            <%= image_tag place.photos.first.picture, class: 'img-responsive img-thumbnail' %>
-            <p class="text-center"><i><%= place.photos.first.caption %></i></p>
+            <%= image_tag place.photos.order("id ASC").last.picture, class: 'img-responsive img-thumbnail' %>
+            <p class="text-center"><i><%= place.photos.order("id ASC").last.caption %></i></p>
         </div>
       </div>
     <% end %>
@@ -67,11 +67,11 @@
     <% if place.comments.present? %>
       <div class="col-xs-12">
         <blockquote>
-          <% if place.comments.last.humanized_rating.present? %>
-            <b><%= place.comments.last.humanized_rating %></b> -
+          <% if place.comments.order("id ASC").last.humanized_rating.present? %>
+            <b><%= place.comments.order("id ASC").last.humanized_rating %></b> -
           <% end %>
-          <%= place.comments.last.message %>
-          <small><%= place.comments.last.user.email %></small>
+          <%= place.comments.order("id ASC").last.message %>
+          <small><%= place.comments.order("id ASC").last.user.email %></small>
         </blockquote>
       </div>
     <% end %>
