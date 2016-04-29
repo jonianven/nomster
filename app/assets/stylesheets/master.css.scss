@@ -8,6 +8,10 @@
   margin-top: 10px; 
   margin-bottom: 15px;
   padding: 20px; 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  background: url('/assets/gplaypattern.png');
+  background: url('tileable_wood_texture.png');
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
