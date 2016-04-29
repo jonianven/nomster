@@ -58,8 +58,8 @@
     <% if place.photos.present? %>
       <div class="row no-gutters">
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-            <%= image_tag place.photos.last.picture, class: 'img-responsive img-thumbnail' %>
-            <p class="text-center"><i><%= place.photos.last.caption %></i></p>
+            <%= image_tag place.photos.first.picture, class: 'img-responsive img-thumbnail' %>
+            <p class="text-center"><i><%= place.photos.first.caption %></i></p>
         </div>
       </div>
     <% end %>
